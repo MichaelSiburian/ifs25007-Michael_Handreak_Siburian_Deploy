@@ -108,7 +108,8 @@ def muat_data():
     """
     try:
         df = pd.read_excel(DATA_FILE)
-        df["date"] = pd.to_datetime(df["date"])
+        df["Tanggal"] = pd.to_datetime(df["Tanggal"])
+
 
         
         # Kolom yang berisi data uang
