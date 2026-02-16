@@ -92,11 +92,7 @@ st.set_page_config(
     page_icon="📊"
 )
 
-import os
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(BASE_DIR, "data_kuesioner.xlsx")
-
+DATA_FILE = "itdeltech_2025.csv"
 
 # =====================================================
 # MEMUAT DATA (DATA LOADING)
@@ -107,10 +103,7 @@ def muat_data():
     Memuat dan mempersiapkan data dari file CSV
     """
     try:
-        df = pd.read_excel(DATA_FILE)
-        df["Tanggal"] = pd.to_datetime(df["Tanggal"])
-
-
+        df = pd.read_csv(DATA_FILE, parse_dates=["date"])
         
         # Kolom yang berisi data uang
         kolom_uang = ["unit_price", "sales_qty", "revenue", "cost", "profit"]
